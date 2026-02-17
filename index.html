@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Website Imlek - Rp 350.000</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-red: #C41E3A;
+            --primary-red-dark: #A01830;
+            --primary-gold: #D4AF37;
+            --primary-gold-light: #FFD700;
+            --accent-orange: #FF6B35;
+            --white: #FFFFFF;
+            --light-cream: #FFF8F0;
+            --dark-text: #1A1A1A;
+            --gray-text: #666666;
+            --light-gray: #F5F5F5;
+            --shadow: 0 4px 20px rgba(196, 30, 58, 0.15);
+            --shadow-hover: 0 8px 30px rgba(196, 30, 58, 0.25);
+            --transition: all 0.3s ease;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-family);
+            color: var(--dark-text);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        .navbar {
+            background: var(--white);
+            padding: 15px 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-red);
+        }
+        .logo-icon { font-size: 1.8rem; }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-red);
+            background: rgba(196, 30, 58, 0.1);
+        }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-red);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .hero-decoration {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+        }
+        .lantern {
+            position: absolute;
+            font-size: 4rem;
+            animation: swing 3s ease-in-out infinite;
+            opacity: 0.8;
+        }
+        .lantern-left { top: 100px; left: 5%; animation-delay: 0s; }
+        .lantern-right { top: 120px; right: 5%; animation-delay: 1.5s; }
+        @keyframes swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        .hero-content { text-align: center; position: relative; z-index: 1; }
+        .badge {
+            display: inline-block;
+            background: var(--primary-gold);
+            color: var(--dark-text);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-title .highlight {
+            color: var(--primary-gold-light);
+            display: block;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .hero-price {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .price-old {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: line-through;
+        }
+        .price-new {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-gold-light);
+        }
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+        .btn-icon { font-size: 1.2rem; }
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+        }
+        .btn-whatsapp:hover {
+            background: #20BD5A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+        .btn-email {
+            background: var(--white);
+            color: var(--primary-red);
+            border: 2px solid var(--white);
+        }
+        .btn-email:hover {
+            background: transparent;
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .btn-large { padding: 18px 36px; font-size: 1.1rem; }
+        .urgency-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 24px;
+            border-radius: 50px;
+            color: var(--white);
+            font-weight: 600;
+        }
+        .urgency-icon { font-size: 1.3rem; }
+
+        /* Features Section */
+        .features-preview {
+            padding: 80px 0;
+            background: var(--light-cream);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 50px;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .feature-icon { font-size: 3rem; margin-bottom: 15px; }
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+        .feature-card p { color: var(--gray-text); font-size: 0.95rem; }
+
+        /* Domain Section */
+        .domain-preview {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        .domain-btn {
+            background: var(--white);
+            border: 2px solid var(--primary-red);
+            padding: 20px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .domain-btn:hover {
+            background: var(--primary-red);
+            transform: scale(1.05);
+        }
+        .domain-btn:hover .domain-name,
+        .domain-btn:hover .domain-status { color: var(--white); }
+        .domain-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            transition: var(--transition);
+        }
+        .domain-status {
+            font-size: 0.75rem;
+            color: var(--gray-text);
+            transition: var(--transition);
+        }
+        .domain-note {
+            text-align: center;
+            color: var(--gray-text);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--light-cream);
+        }
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+            padding: 50px;
+            border-radius: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-box::before {
+            content: '🧧';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            right: -50px;
+            top: -50px;
+        }
+        .cta-box h2 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-text);
+            padding: 40px 0 20px;
+            color: var(--white);
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .footer-contact {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .footer-contact a:hover { color: var(--primary-gold); }
+        .footer-bottom { padding-top: 20px; text-align: center; }
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .float-whatsapp { background: #25D366; }
+        .float-email { background: var(--primary-red); }
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title { font-size: 2.2rem; }
+            .lantern { font-size: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-toggle { display: flex; }
+            .nav-menu {
+                position: absolute;
+                top: 100%; left: 0; right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                gap: 10px;
+                box-shadow: var(--shadow);
+                display: none;
+            }
+            .nav-menu.active { display: flex; }
+            .nav-menu a { padding: 12px 20px; display: block; }
+            .hero { padding: 120px 0 60px; }
+            .hero-title { font-size: 1.8rem; }
+            .hero-price { flex-direction: column; gap: 5px; }
+            .price-new { font-size: 2rem; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .lantern { display: none; }
+            .section-title { font-size: 1.6rem; }
+            .features-preview, .domain-preview, .cta-section { padding: 50px 0; }
+            .domain-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-box { padding: 30px 20px; }
+            .cta-box h2 { font-size: 1.5rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-contact { flex-direction: column; gap: 10px; }
+            .floating-cta { bottom: 20px; right: 20px; }
+            .float-btn { width: 50px; height: 50px; font-size: 1.3rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.5rem; }
+            .price-new { font-size: 1.8rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .btn-large { padding: 15px 25px; font-size: 1rem; }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .feature-card { animation: fadeInUp 0.6s ease forwards; }
+        .feature-card:nth-child(2) { animation-delay: 0.1s; }
+        .feature-card:nth-child(3) { animation-delay: 0.2s; }
+        .feature-card:nth-child(4) { animation-delay: 0.3s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🧧</span>
+                <span class="logo-text">Web Imlek</span>
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="domain.html">Produk</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-decoration">
+            <div class="lantern lantern-left">🏮</div>
+            <div class="lantern lantern-right">🏮</div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">🔥 PROMO IMLEK 2025</div>
+                <h1 class="hero-title">
+                    Website Impian Anda<br>
+                    <span class="highlight">Hanya Rp 350.000!</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Paket lengkap 3 halaman profesional, domain pilihan, hosting aktif - 
+                    Website langsung online!
+                </p>
+                <div class="hero-price">
+                    <span class="price-old">Rp 500.000</span>
+                    <span class="price-new">Rp 350.000</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="https://wa.me/6288973745596?text=Halo,%20saya%20mau%20pesan%20website%20Imlek%20Rp%20350.000" class="btn btn-whatsapp" target="_blank">
+                        <span class="btn-icon">📱</span>
+                        WhatsApp Sekarang
+                    </a>
+                    <a href="mailto:ZDL.my.id@gmail.com?subject=Pesan%20Website%20Imlek%20Rp%20350.000&body=Halo,%20saya%20mau%20pesan%20website%20Imlek%20Rp%20350.000" class="btn btn-email">
+                        <span class="btn-icon">✉️</span>
+                        Kirim Email
+                    </a>
+                </div>
+                <div class="urgency-box">
+                    <span class="urgency-icon">⚡</span>
+                    <span>Pesan hari ini - Selesai hari ini!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Preview -->
+    <section class="features-preview">
+        <div class="container">
+            <h2 class="section-title">Apa yang Anda Dapatkan?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>3 Halaman Lengkap</h3>
+                    <p>Home, About, dan Produk/Service dengan desain profesional</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Domain Pilihan</h3>
+                    <p>Pilih domain: .online, .site, .store, .my.id, .cloud, .asia, .click</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Hosting Aktif</h3>
+                    <p>Website langsung online, siap digunakan</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Desain responsif, tampil sempurna di semua perangkat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domain Selection Preview -->
+    <section class="domain-preview">
+        <div class="container">
+            <h2 class="section-title">Pilih Domain Anda</h2>
+            <p style="text-align:center;color:var(--gray-text);margin-bottom:30px;">Klik domain untuk langsung pesan via WhatsApp</p>
+            <div class="domain-grid" id="domainGrid">
+                <button class="domain-btn" data-domain=".online">
+                    <span class="domain-name">.online</span>
+                    <span class="domain-status">Tersedia</span>
+                </button>
+                <button class="domain-btn" data-domain=".site">
+                    <span class="domain-name">.site</span>
+                    <span class="domain-status">Tersedia</span>
+                </button>
+                <button class="domain-btn" data-domain=".store">
+                    <span class="domain-name">.store</span>
+                    <span class="domain-status">Tersedia</span>
+                </button>
+                <button class="domain-btn" data-domain=".my.id">
+                    <span class="domain-name">.my.id</span>
+                    <span class="domain-status">Populer</span>
+                </button>
+                <button class="domain-btn" data-domain=".cloud">
+                    <span class="domain-name">.cloud</span>
+                    <span class="domain-status">Tersedia</span>
+                </button>
+                <button class="domain-btn" data-domain=".asia">
+                    <span class="domain-name">.asia</span>
+                    <span class="domain-status">Tersedia</span>
+                </button>
+                <button class="domain-btn" data-domain=".click">
+                    <span class="domain-name">.click</span>
+                    <span class="domain-status">Tersedia</span>
+                </button>
+            </div>
+            <p class="domain-note">💡 Domain terbatas! Pesan sekarang untuk amankan pilihan Anda</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Slot Terbatas!</h2>
+                <p>Jangan lewatkan promo spesial Imlek ini. Pesan sekarang dan dapatkan website profesional dengan harga terbaik!</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6288973745596?text=Halo,%20saya%20mau%20pesan%20website%20Imlek%20Rp%20350.000" class="btn btn-whatsapp btn-large" target="_blank">
+                        <span class="btn-icon">📱</span>
+                        Hubungi via WhatsApp
+                    </a>
+                    <a href="mailto:ZDL.my.id@gmail.com?subject=Pesan%20Website%20Imlek%20Rp%20350.000&body=Halo,%20saya%20mau%20pesan%20website%20Imlek%20Rp%20350.000" class="btn btn-email btn-large">
+                        <span class="btn-icon">✉️</span>
+                        Kirim Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🧧</span>
+                    <span>Web Imlek Promo</span>
+                </div>
+                <div class="footer-contact">
+                    <a href="https://wa.me/6288973745596" target="_blank">📱 +62 889-7374-5596</a>
+                    <a href="mailto:ZDL.my.id@gmail.com">✉️ ZDL.my.id@gmail.com</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Promo Website Imlek. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="https://wa.me/6288973745596?text=Halo,%20saya%20mau%20pesan%20website%20Imlek%20Rp%20350.000" class="float-btn float-whatsapp" target="_blank" title="Chat WhatsApp">📱</a>
+        <a href="mailto:ZDL.my.id@gmail.com?subject=Pesan%20Website%20Imlek%20Rp%20350.000" class="float-btn float-email" title="Kirim Email">✉️</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    const spans = navToggle.querySelectorAll('span');
+                    if (navMenu.classList.contains('active')) {
+                        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                    } else {
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        const spans = navToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+            }
+
+            // Domain Click Handler
+            const CONFIG = {
+                whatsappNumber: '6288973745596',
+                messageTemplate: 'Halo, saya mau pesan website Imlek Rp 350.000 dengan domain'
+            };
+
+            function generateWhatsAppUrl(domain) {
+                const message = CONFIG.messageTemplate + ' ' + domain;
+                return 'https://wa.me/' + CONFIG.whatsappNumber + '?text=' + encodeURIComponent(message);
+            }
+
+            const domainButtons = document.querySelectorAll('.domain-btn');
+            domainButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const domain = this.getAttribute('data-domain');
+                    if (domain) {
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => { this.style.transform = ''; }, 150);
+                        window.open(generateWhatsAppUrl(domain), '_blank');
+                    }
+                });
+            });
+
+            // Floating CTA visibility
+            const floatingCta = document.querySelector('.floating-cta');
+            const footer = document.querySelector('.footer');
+            if (floatingCta && footer) {
+                window.addEventListener('scroll', function() {
+                    const footerRect = footer.getBoundingClientRect();
+                    if (footerRect.top < window.innerHeight) {
+                        floatingCta.style.opacity = '0';
+                        floatingCta.style.pointerEvents = 'none';
+                    } else {
+                        floatingCta.style.opacity = '1';
+                        floatingCta.style.pointerEvents = 'auto';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
